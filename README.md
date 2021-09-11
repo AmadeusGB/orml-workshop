@@ -284,7 +284,8 @@ Interfaces available for calling between modules:
 - bid(id, value) - Bid an auction
 
 ### 5.2 orml-nft
-Use orml-nft pallet to create use cases similar to ERC721
+Use orml-nft pallet to create use cases similar to ERC721  
+
 **5.2.1 configuration dependencies**
 ```bash
 cargo.toml:
@@ -296,7 +297,7 @@ version = '0.4.1-dev'
 lib.rs:
 impl orml_nft::Config for Runtime ...
 ```
-**5.22 interface**
+**5.2.2 interface**
 Interfaces available for calling between modules:
 
 - create_class(owner, class_metadata, class_data) - create an NFT class
