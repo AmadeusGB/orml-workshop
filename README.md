@@ -15,8 +15,8 @@ Before attempting this tutorial, you should be familiar with the concepts listed
 - Adding, Removing, and configuring pallets in a runtime
 - Pallet design  
 
-## 3.引入相关配置
-### 3.1 runtime中lib.rs和cargo.toml配置
+## 3.Introduce related configuration
+### 3.1 lib.rs and cargo.toml configuration in runtime
 **cargo.toml**  
 Add the following dependencies:
 ```bash
@@ -311,7 +311,7 @@ OrderCreated(T::OrderId, OrderOf<T>),
 OrderTaken(T::AccountId, T::OrderId, OrderOf<T>),
 OrderCancelled(T::OrderId),
 ```
-## 5.扩展模块简介
+## 5.Introduction to Expansion Module
 ### 5.1 orml-aution
 Auction module provides a way to open auction and place bids on-chain. You can open an auction by specifying a start: BlockNumber and/or an end: BlockNumber, and when the auction becomes active enabling anyone to place a bid at a higher price. Trait AuctionHandler is been used to validate the bid and when the auction ends AuctionHandle::on_auction_ended(id, bid) gets called.
 **5.1.1 configuration dependencies**
