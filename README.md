@@ -259,7 +259,8 @@ OrderCancelled(T::OrderId),
 ```
 ## 5.Introduction to Expansion Module
 ### 5.1 orml-aution
-Auction module provides a way to open auction and place bids on-chain. You can open an auction by specifying a start: BlockNumber and/or an end: BlockNumber, and when the auction becomes active enabling anyone to place a bid at a higher price. Trait AuctionHandler is been used to validate the bid and when the auction ends AuctionHandle::on_auction_ended(id, bid) gets called.
+Auction module provides a way to open auction and place bids on-chain. You can open an auction by specifying a start: BlockNumber and/or an end: BlockNumber, and when the auction becomes active enabling anyone to place a bid at a higher price. Trait AuctionHandler is been used to validate the bid and when the auction ends AuctionHandle::on_auction_ended(id, bid) gets called.  
+
 **5.1.1 configuration dependencies**
 **Runtime**:
 ```bash
