@@ -5,8 +5,10 @@ Sub0 Workshop Link: https://www.crowdcast.io/e/axvfinsv/19
 This is a workshop project for learning about blockchain runtime development with [Substrate](https://substrate.dev/),[FRAME](https://substrate.dev/docs/en/knowledgebase/runtime/frame) and the[Open Runtime Module Library](https://github.com/open-web3-stack/open-runtime-module-library). This project implements a simple exchange protocol that is built on top of the ORML [Currencies](https://github.com/open-web3-stack/open-runtime-module-library/tree/master/currencies) and [Tokens](https://github.com/open-web3-stack/open-runtime-module-library/tree/master/tokens) pallets. After completing this workshop, participants should have a better understanding of how to design and implement a FRAME pallet.
 ## 2.Basic requirements before starting
 You should have completed at least the following three steps before attempting this tutorial:
+
 - [Substrate Node template engineering environment configuration](https://github.com/AmadeusGB/orml-workshop/blob/main/template-setup.md)
-- [Rust local environment configuration](https://github.com/AmadeusGB/orml-workshop/blob/main/rust-setup.md)
+- [Rust local environment configuration](https://github.com/AmadeusGB/orml-workshop/blob/main/rust-setup.md)  
+
 Before attempting this tutorial, you should be familiar with the concepts listed below:
 - Launching a Substrate chain
 - Submitting extrinsics
