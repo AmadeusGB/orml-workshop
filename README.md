@@ -308,8 +308,9 @@ Interfaces available for calling between modules:
 - is_owner(owner, (class_id, token_id)) - check if a certain token is owned by the user.
 
 ### 5.3 orml-authority
-Authority module to provide features for governance including dispatch method on behalf other accounts and schdule dispatchables.
-**5.1.1 configuration dependencies**
+Authority module to provide features for governance including dispatch method on behalf other accounts and schdule dispatchables.  
+
+**5.3.1 configuration dependencies**
 ```bash
 cargo.toml:
 [dependencies.orml-authority]
@@ -320,7 +321,7 @@ version = '0.4.1-dev'
 lib.rs:
 impl orml_authority::Config for Runtime ...
 ```
-**5.1.2 interface**
+**5.3.2 interface**
 Interfaces available for calling between modules:
 
 - dispatch_as(as_origin, call) - can dispatch a dispatchable on behalf of other origin.
