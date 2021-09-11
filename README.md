@@ -50,14 +50,8 @@ std = [
 Add the following implement:
 ```bash
 use codec::{Decode, Encode};
-use pallet_grandpa::{
-	fg_primitives, AuthorityId as GrandpaId, AuthorityList as GrandpaAuthorityList,
-};
 #[cfg(feature = "std")]
 use serde::{Deserialize, Serialize};
-use sp_api::impl_runtime_apis;
-use sp_consensus_aura::sr25519::AuthorityId as AuraId;
-use sp_core::{crypto::KeyTypeId, OpaqueMetadata};
 use sp_runtime::traits::{
 	AccountIdLookup, BlakeTwo256, Block as BlockT, IdentifyAccount, NumberFor, Verify,
 };
@@ -67,57 +61,14 @@ use sp_runtime::{
 	transaction_validity::{TransactionSource, TransactionValidity},
 	ApplyExtrinsicResult, MultiSignature, RuntimeDebug,
 };
-use sp_std::prelude::*;
-#[cfg(feature = "std")]
-use sp_version::NativeVersion;
-use sp_version::RuntimeVersion;
 
 use orml_currencies::BasicCurrencyAdapter;
 use orml_traits::parameter_type_with_key;
 
-// A few exports that help ease life for downstream crates.
-pub use frame_support::{
-	construct_runtime, parameter_types,
-	traits::{KeyOwnerProofSystem, Randomness, StorageInfo},
-	weights::{
-		constants::{BlockExecutionWeight, ExtrinsicBaseWeight, RocksDbWeight, WEIGHT_PER_SECOND},
-		IdentityFee, Weight,
-	},
-	StorageValue,
-};
-pub use pallet_balances::Call as BalancesCall;
-pub use pallet_timestamp::Call as TimestampCall;
-use pallet_transaction_payment::CurrencyAdapter;
-#[cfg(any(feature = "std", test))]
-pub use sp_runtime::BuildStorage;
-pub use sp_runtime::{Perbill, Permill};
-
-/// Import the template pallet.
+/// Import the exchange pallet.
 pub use pallet_exchange;
 
-/// An index to a block.
-pub type BlockNumber = u32;
-
-/// Alias to 512-bit hash when used in the context of a transaction signature on the chain.
-pub type Signature = MultiSignature;
-
-/// Some way of identifying an account on the chain. We intentionally make it equivalent
-/// to the public key of our transaction signing scheme.
-pub type AccountId = <<Signature as Verify>::Signer as IdentifyAccount>::AccountId;
-
 pub type AccountIndex = u32;
-
-/// Balance of an account.
-pub type Balance = u128;
-
-/// Index of a transaction in the chain.
-pub type Index = u32;
-
-/// A hash of some data used by the chain.
-pub type Hash = sp_core::H256;
-
-/// Digest item type.
-pub type DigestItem = generic::DigestItem<Hash>;
 
 #[derive(Encode, Decode, Eq, PartialEq, Copy, Clone, RuntimeDebug, PartialOrd, Ord)]
 #[cfg_attr(feature = "std", derive(Serialize, Deserialize))]
@@ -173,16 +124,11 @@ construct_runtime!(
 **chain_spec.rs**
 Add the following implement:
 ```bash
-use sp_core::{Pair, Public, sr25519};
 use node_template_runtime::{
 	AccountId, AuraConfig, BalancesConfig, GenesisConfig, GrandpaConfig, TokensConfig,
 	SudoConfig, SystemConfig, WASM_BINARY, Signature, CurrencyId,
 	NftConfig, items
 };
-use sp_consensus_aura::sr25519::AuthorityId as AuraId;
-use sp_finality_grandpa::AuthorityId as GrandpaId;
-use sp_runtime::traits::{Verify, IdentifyAccount};
-use sc_service::ChainType;
 
 fn testnet_genesis(
 	wasm_binary: &[u8],
